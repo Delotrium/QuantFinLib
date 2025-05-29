@@ -3,5 +3,5 @@ use QuantFinLib::Math;
 
 fn main()
 {
-  println!("BinomPDF Calc: {}", Math::BasicProbability::Factorial(5.0));
+  println!("BinomPDF Calc: {}", Math::basic_probability::factorial(5.0));
 }

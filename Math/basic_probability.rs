@@ -1,4 +1,4 @@
-pub fn Factorial(number: f64) -> f64 {
+pub fn factorial(number: f64) -> f64 {
     if number < 0.0 {
         return 0.0; // Factorial is not defined for negative numbers
     }
@@ -16,9 +16,9 @@ pub fn binom_pdf(p: f64, n: u64, k: u64) -> f64 {
         return 0.0;
     }
 
-    let n_fact = Factorial(n as f64);
-    let k_fact = Factorial(k as f64);
-    let n_minus_k_fact = Factorial((n - k) as f64);
+    let n_fact = factorial(n as f64);
+    let k_fact = factorial(k as f64);
+    let n_minus_k_fact = factorial((n - k) as f64);
 
     let combination = n_fact / (k_fact * n_minus_k_fact);
 

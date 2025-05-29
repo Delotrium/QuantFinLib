@@ -2,7 +2,7 @@ const PI : f64 = 3.14159265358979323846;
 
 pub fn poisson(lambda:f64, x :u64)->f64
 {
-    (f64::exp(-lambda) * f64::powf(lambda, x as f64))/ crate::Math::BasicProbability::Factorial(x as f64)
+    (f64::exp(-lambda) * f64::powf(lambda, x as f64))/ crate::Math::basic_probability::factorial(x as f64)
 }
 
 pub fn gaussian_distr(mean: f64, sd: f64, x: f64) -> f64 {
