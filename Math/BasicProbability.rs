@@ -16,11 +16,33 @@ pub fn binom_pdf(p: f64, n: u64, k: u64) -> f64 {
         return 0.0;
     }
 
-    let n_fact = factorial(n);
-    let k_fact = factorial(k);
-    let n_minus_k_fact = factorial(n - k);
+    let n_fact = Factorial(n as f64);
+    let k_fact = Factorial(k as f64);
+    let n_minus_k_fact = Factorial((n - k) as f64);
 
     let combination = n_fact / (k_fact * n_minus_k_fact);
 
     combination * p.powf(k as f64) * (1.0 - p).powf((n - k) as f64)
 }
+
+pub fn binom_cdf(observerd_prob: f64, numtrials : u64, mut lower_limit: u64, upper_limit:u64) -> f64
+{
+    let mut cdf : f64 = 0f64;
+    while lower_limit < upper_limit
+    {
+        cdf = cdf + binom_pdf(observerd_prob, numtrials, lower_limit);
+        lower_limit += 1;
+    }
+    cdf
+}
+
+pub fn binom_ev(num_trials :f64, prob_success : f64) -> f64
+{
+    num_trials * prob_success
+}
+
+pub fn binom_var(num_trials:f64, prob_success:f64) -> f64
+{
+    num_trials * prob_success * (1f64-prob_success)
+}
+
