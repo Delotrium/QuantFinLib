@@ -10,5 +10,5 @@ pub fn compound_interest_periodic(principal:f64, rate:f64, periods:f64, periods_
 
 pub fn simple_interest(principal:f64, rate:f64, time:f64) ->f64
 {
-    principal * rate * time + Principal
+    principal * rate * time + principal
 }
