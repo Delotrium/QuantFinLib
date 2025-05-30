@@ -46,3 +46,81 @@ pub fn binom_var(num_trials:f64, prob_success:f64) -> f64
     num_trials * prob_success * (1f64-prob_success)
 }
 
+pub fn sum(numbers: &[f64]) -> f64
+{
+    let mut sum:f64=0f64;
+    for n in numbers
+    {
+        sum += n;
+    }
+    sum
+}
+
+pub fn mean(numbers: &[f64]) -> f64
+{
+    let total_sum:f64 = sum(numbers);
+    total_sum / numbers.len() as f64
+}
+
+pub fn expected_value(numbers: &[f64], probabilities: &[f64]) -> f64
+{
+    let mut i  =1;
+    let mut val = 0f64;
+    while i<numbers.len()
+    {
+        val = val + (numbers[i]*probabilities[i]);
+        i+=1;
+    }
+    val
+}
+
+pub fn var_sample(numbers: &[f64]) -> f64
+{
+    let mut i  =1;
+    let mut val = 0f64;
+    let mean = mean(numbers);
+    while i<numbers.len()
+    {
+        val += f64::powf(numbers[i]-mean, 2f64);
+        i+=1;
+    }
+    val / (numbers.len()-1) as f64
+}
+
+pub fn var_pop(numbers: &[f64]) -> f64
+{
+    let mut i  =1;
+    let mut val = 0f64;
+    let mean = mean(numbers);
+    while i<numbers.len()
+    {
+        val += f64::powf(numbers[i]-mean, 2f64);
+        i+=1;
+    }
+    val / numbers.len() as f64
+}
+
+pub fn standard_deviation_sample(numbers: &[f64]) -> f64
+{
+    f64::sqrt(var_sample(numbers))
+}
+
+pub fn standard_deviation_pop(numbers: &[f64]) -> f64
+{
+    f64::sqrt(var_pop(numbers))
+}
+
+pub fn geometric_mean(numbers: &[f64]) -> f64
+{
+    let mut i = 0;
+    let mut val = 0f64;
+    while i < numbers.len()
+    {
+        val *= numbers[i];
+        i+=1;
+    }
+    f64::powf(val, 1.0/numbers.len() as f64)
+}
+
+
+
