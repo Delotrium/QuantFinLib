@@ -2,7 +2,7 @@ const PI : f64 = 3.14159265358979323846;
 
 pub fn poisson(lambda:f64, x :u64)->f64
 {
-    (f64::exp(-lambda) * f64::powf(lambda, x as f64))/ crate::math::basic_probability::factorial(x as f64)
+    (f64::exp(-lambda) * f64::powf(lambda, x as f64))/ crate::math::stats::factorial(x as f64)
 }
 
 pub fn gaussian_distr(mean: f64, sd: f64, x: f64) -> f64 {
@@ -16,8 +16,8 @@ pub fn gaussian_distr(mean: f64, sd: f64, x: f64) -> f64 {
 
 pub fn skew(numbers: &[f64]) -> f64
 {
-    let mean = crate::math::basic_probability::mean(numbers);
-    let sd = crate::math::basic_probability::standard_deviation_sample(numbers);
+    let mean = crate::math::stats::mean(numbers);
+    let sd = crate::math::stats::standard_deviation_sample(numbers);
     let coeff:f64 = 1.0/((numbers.len() as f64) * f64::powf(sd,3.0));
     let mut skew:f64 =0f64;
     let mut i = 1;
@@ -31,8 +31,8 @@ pub fn skew(numbers: &[f64]) -> f64
 
 pub fn kurtosis(numbers: &[f64]) -> f64
 {
-    let mean = crate::math::basic_probability::mean(numbers);
-    let sd = crate::math::basic_probability::standard_deviation_sample(numbers);
+    let mean = crate::math::stats::mean(numbers);
+    let sd = crate::math::stats::standard_deviation_sample(numbers);
     let coeff:f64 = 1.0/((numbers.len() as f64) * f64::powf(sd,4.0));
     let mut kurt:f64 =0f64;
     let mut i = 1;

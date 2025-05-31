@@ -122,5 +122,21 @@ pub fn geometric_mean(numbers: &[f64]) -> f64
     f64::powf(val, 1.0/numbers.len() as f64)
 }
 
-
+pub fn downside_deviation(numbers: &[f64], mar: f64) -> f64 {
+    if numbers.is_empty() {
+        return f64::NAN;
+    }
+    let mut sum_sq = 0.0;
+    let mut count = 0;
+    for &x in numbers {
+        if x < mar {
+            sum_sq += (x - mar).powi(2);
+            count += 1;
+        }
+    }
+    if count == 0 {
+        return 0.0;
+    }
+    (sum_sq / count as f64).sqrt()
+}
 
