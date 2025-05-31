@@ -1,1 +1,2 @@
-pub mod Math;
+pub mod math;
+pub mod finance;

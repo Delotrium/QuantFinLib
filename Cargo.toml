@@ -1,12 +1,12 @@
 [package]
-name = "QuantFinLib"
+name = "qfl"
 version = "0.1.0"
 edition = "2024"
 
 [dependencies]
 
 [[bin]]
-name = "QuantFinLib"
+name = "qfl"
 path = "main.rs"
 
 [lib]
