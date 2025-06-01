@@ -27,4 +27,7 @@ pub fn sortino_list(values: &[f64], risk_free_rate:f64) -> f64
     (mean-risk_free_rate)/(dd)
 }
 
-
+pub fn price_earnings_ratio(market_price:f64, earnings_per_share:f64) -> f64
+{
+    market_price/earnings_per_share
+}
