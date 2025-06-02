@@ -3,5 +3,7 @@
 
 fn main()
 {
-  println!("{:?}", qfl::finance::depreciation::straight_line_depr_table(80000.0, 50000.0, 3.0));
+  let nums = vec![1.0,2.0,3.0,4.0,5.0];
+  let var = vec![0.2, 0.1,0.4,0.2,0.0];
+ println!("{}", qfl::math::stats::inverse_variance_weighting(&nums, &var));
 }

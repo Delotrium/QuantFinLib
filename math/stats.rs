@@ -124,7 +124,7 @@ pub fn geometric_mean(numbers: &[f64]) -> f64
 
 pub fn downside_deviation(numbers: &[f64], mar: f64) -> f64 {
     if numbers.is_empty() {
-        return f64::NAN;
+        return f64::NAN;    
     }
     let mut sum_sq = 0.0;
     let mut count = 0;
@@ -140,3 +140,16 @@ pub fn downside_deviation(numbers: &[f64], mar: f64) -> f64 {
     (sum_sq / count as f64).sqrt()
 }
 
+pub fn inverse_variance_weighting(numbers: &[f64], variance:&[f64]) -> f64
+{
+    let mut i:usize = 0;
+    let mut coeff =0f64;
+    let mut inv_var =0f64;
+    while i< numbers.len() - 1
+    {
+        coeff += numbers[i] / variance[i];
+        inv_var += 1f64 / variance[i];
+        i+=1;
+    }
+    coeff/inv_var
+}
