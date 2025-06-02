@@ -153,3 +153,4 @@ pub fn inverse_variance_weighting(numbers: &[f64], variance:&[f64]) -> f64
     }
     coeff/inv_var
 }
+
