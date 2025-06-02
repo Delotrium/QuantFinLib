@@ -3,5 +3,5 @@
 version = 4
 
 [[package]]
-name = "QuantFinLibrary"
+name = "qfl"
 version = "0.1.0"

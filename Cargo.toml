@@ -1,5 +1,5 @@
 [package]
-name = "QuantFinLibrary"
+name = "qfl"
 version = "0.1.0"
 edition = "2024"
 description = "A Rust library of various functions and tools for Statistics, Quant Finance, Stochastic Modelling, and other needs."
