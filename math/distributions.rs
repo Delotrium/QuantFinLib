@@ -1,4 +1,4 @@
-const PI : f64 = 3.14159265358979323846;
+const PI : f64 = std::f64::consts::PI;
 
 pub fn poisson(lambda:f64, x :u64)->f64
 {
@@ -45,7 +45,6 @@ pub fn kurtosis(numbers: &[f64]) -> f64
 }
 
 pub fn erf(x: f64) -> f64 {
-    // Coefficients for approximation to erf in the range [0, inf)
     let a = [
         1.061405429, -1.453152027, 1.421413741,
         -0.284496736, 0.254829592,
@@ -63,6 +62,5 @@ pub fn erf(x: f64) -> f64 {
 }
 
 pub fn norm_cdf(x: f64) -> f64 {
-    // Compute CDF using erf approximation
     0.5 * (1.0 + erf(x / std::f64::consts::SQRT_2))
 }
