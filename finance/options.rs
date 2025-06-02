@@ -7,3 +7,17 @@ pub fn d2(stock_price_s:f64, strike_price_k:f64, time_to_mat_t:f64, risk_free_ra
 {
     d1(stock_price_s, strike_price_k, time_to_mat_t, risk_free_rate_r, volatility_sigma) - volatility_sigma * f64::sqrt(time_to_mat_t)
 }
+
+pub fn black_scholes_price(stock_price_s:f64, strike_price_k:f64, time_to_mat_t:f64, risk_free_rate_r:f64, volatility_sigma:f64, dividend_returns_q:f64, is_call:bool) -> f64
+{
+    let d_1 = d1(stock_price_s, strike_price_k, time_to_mat_t, risk_free_rate_r, volatility_sigma);
+    let d_2 = d2(stock_price_s, strike_price_k, time_to_mat_t, risk_free_rate_r, volatility_sigma);
+    if is_call
+    {
+        stock_price_s * f64::exp(- dividend_returns_q * time_to_mat_t) * crate::math::distributions::norm_cdf(d_1) - strike_price_k * f64::exp(- risk_free_rate_r * time_to_mat_t) * crate::math::distributions::norm_cdf(d_2)
+    }
+    else 
+    {
+        strike_price_k * f64::exp(- risk_free_rate_r * time_to_mat_t) * crate::math::distributions::norm_cdf(-d_2) - stock_price_s * f64::exp(- dividend_returns_q * time_to_mat_t) * crate::math::distributions::norm_cdf(-d_1)
+    }
+}
