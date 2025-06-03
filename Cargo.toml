@@ -6,6 +6,7 @@ description = "A Rust library of various functions and tools for Statistics, Qua
 license = "MIT"
 
 [dependencies]
+rand = "0.8"
 
 [[bin]]
 name = "qfl"
