@@ -1,3 +1,5 @@
+// For Depreciation valuation 
+
 pub fn straight_line_depr_ammount(init_value:f64, final_value:f64, useful_life:f64) -> f64
 {
     (init_value-final_value)/useful_life

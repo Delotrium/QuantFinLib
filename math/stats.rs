@@ -1,3 +1,5 @@
+// Functions for statistical and probabilistic mathematics
+
 pub fn factorial(number: f64) -> f64 {
     if number < 0.0 {
         return 0.0; // Factorial is not defined for negative numbers

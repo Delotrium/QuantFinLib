@@ -1,3 +1,4 @@
+// Used for options pricing and greek letters
 
 pub fn d1(stock_price_s:f64, strike_price_k:f64, time_to_mat_t:f64, risk_free_rate_r:f64, volatility_sigma:f64) -> f64
 {

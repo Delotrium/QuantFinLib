@@ -1,3 +1,5 @@
+// Modeling and calculations for mathematic distributions
+
 const PI : f64 = std::f64::consts::PI;
 
 pub fn poisson(lambda:f64, x :u64)->f64

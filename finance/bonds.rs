@@ -1,3 +1,5 @@
+//Functions relating to bond and bond valuing
+
 pub fn zcb(facevalue:f64,rate:f64,time:f64,maturity:f64) -> f64
 {
     facevalue/f64::powf(1f64+rate,maturity-time)

@@ -1,3 +1,5 @@
+// Basic financial ratios
+
 pub fn return_amount(current_price:f64, past_price:f64)->f64
 {
     (current_price-past_price)/(current_price)

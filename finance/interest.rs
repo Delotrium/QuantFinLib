@@ -1,3 +1,5 @@
+// For calculating interest amounts
+
 pub fn compound_interest_cont(principal:f64, rate:f64, time:f64)-> f64
 {
     principal * f64::exp(rate*time)
