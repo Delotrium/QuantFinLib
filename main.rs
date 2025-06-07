@@ -1,7 +1,8 @@
 //Placeholder / Template
 
-
 fn main()
 {
-  println!("{:?}", qfl::math::stochasticd::generate_srw(0.5, -1.0, 15));
+  let list_val = vec![12.5, 12.0];
+  let var = vec![9.0, 4.0];
+  println!("{:?}", qfl::math::stats::inverse_variance_weighting(&list_val, &var));
 }
