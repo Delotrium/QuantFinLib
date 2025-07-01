@@ -33,3 +33,11 @@ pub fn price_earnings_ratio(market_price:f64, earnings_per_share:f64) -> f64
 {
     market_price/earnings_per_share
 }
+
+pub fn portfolio_return_rate(
+    current_value: f64,
+    past_value: f64,
+) -> f64 {
+    (current_value - past_value) / past_value
+}
+

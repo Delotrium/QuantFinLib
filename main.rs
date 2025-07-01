@@ -2,5 +2,7 @@
 
 fn main()
 {
-  println!("{}", qfl::finance::bonds::annuity_value(1000000.0/30.0, 30.0, 0.0425, 1.0));
+  let current_value :f64= 540.82;
+  let past_value:f64 = 540.82 - 15.77;
+  println!("{}%", qfl::finance::ratios::portfolio_return_rate(current_value, past_value) * 600.0);
 }
