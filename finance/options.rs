@@ -40,7 +40,7 @@ pub fn vega(stock_price_s:f64, strike_price_k:f64, time_to_mat:f64, risk_free_ra
     stock_price_s * f64::exp(-dividend_q * time_to_mat) * crate::math::distributions::gaussian_distr(0f64, 1f64, d_1)
 }
 
-pub fn rho(stock_price_s:f64, strike_price_k:f64, time_to_mat:f64, risk_free_rate:f64, sigma:f64, dividend_q:f64, is_call:bool) -> f64
+pub fn rho(stock_price_s:f64, strike_price_k:f64, time_to_mat:f64, risk_free_rate:f64, sigma:f64, is_call:bool) -> f64
 {
     let d_2 = d2(stock_price_s, strike_price_k, time_to_mat, risk_free_rate, sigma);
     if is_call
