@@ -1,4 +1,3 @@
-//Placeholder / Template
 
 fn main()
 {

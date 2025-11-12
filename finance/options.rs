@@ -1,4 +1,4 @@
-// Used for options pricing and greek letters
+
 
 pub fn d1(stock_price_s:f64, strike_price_k:f64, time_to_mat_t:f64, risk_free_rate_r:f64, volatility_sigma:f64) -> f64
 {
@@ -21,4 +21,22 @@ pub fn black_scholes_price(stock_price_s:f64, strike_price_k:f64, time_to_mat_t:
     {
         strike_price_k * f64::exp(- risk_free_rate_r * time_to_mat_t) * crate::math::distributions::norm_cdf(-d_2) - stock_price_s * f64::exp(- dividend_returns_q * time_to_mat_t) * crate::math::distributions::norm_cdf(-d_1)
     }
+}
+
+pub fn delta(stock_price_s:f64, strike_price_k:f64, time_to_mat:f64, risk_free_rate:f64, sigma:f64, dividend_q:f64, is_call:bool) -> f64
+{
+    if is_call
+    {
+        f64::exp(-dividend_q * time_to_mat) * crate::math::distributions::norm_cdf(d1(stock_price_s, strike_price_k, time_to_mat, risk_free_rate, sigma))
+    }
+    else 
+    {
+        -f64::exp(-dividend_q * time_to_mat) * crate::math::distributions::norm_cdf(-d1(stock_price_s, strike_price_k, time_to_mat, risk_free_rate, sigma))
+    }
+}
+
+pub fn vega(stock_price_s:f64, strike_price_k:f64, time_to_mat:f64, risk_free_rate:f64, sigma:f64, dividend_q:f64) -> f64
+{
+    let d_1:f64 = d1(stock_price_s, strike_price_k, time_to_mat, risk_free_rate, sigma);
+    stock_price_s * f64::exp(-dividend_q * time_to_mat) * crate::math::distributions::gaussian_distr(0f64, 1f64, d_1)
 }
