@@ -1,5 +1,4 @@
 
-
 pub fn d1(stock_price_s:f64, strike_price_k:f64, time_to_mat_t:f64, risk_free_rate_r:f64, volatility_sigma:f64) -> f64
 {
     f64::log10((stock_price_s/strike_price_k) + (risk_free_rate_r + 0.5 * volatility_sigma * volatility_sigma) * time_to_mat_t) / (volatility_sigma * f64::sqrt(time_to_mat_t))
@@ -39,4 +38,17 @@ pub fn vega(stock_price_s:f64, strike_price_k:f64, time_to_mat:f64, risk_free_ra
 {
     let d_1:f64 = d1(stock_price_s, strike_price_k, time_to_mat, risk_free_rate, sigma);
     stock_price_s * f64::exp(-dividend_q * time_to_mat) * crate::math::distributions::gaussian_distr(0f64, 1f64, d_1)
+}
+
+pub fn rho(stock_price_s:f64, strike_price_k:f64, time_to_mat:f64, risk_free_rate:f64, sigma:f64, dividend_q:f64, is_call:bool) -> f64
+{
+    let d_2 = d2(stock_price_s, strike_price_k, time_to_mat, risk_free_rate, sigma);
+    if is_call
+    {
+        time_to_mat * strike_price_k * f64::exp(-risk_free_rate*time_to_mat)*crate::math::distributions::norm_cdf(d_2)
+    }
+    else 
+    {
+        - time_to_mat * strike_price_k * f64::exp(-risk_free_rate * time_to_mat) * crate::math::distributions::norm_cdf(-d_2)
+    }
 }
