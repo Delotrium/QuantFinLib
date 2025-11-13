@@ -115,7 +115,7 @@ pub fn standard_deviation_pop(numbers: &[f64]) -> f64
 pub fn geometric_mean(numbers: &[f64]) -> f64
 {
     let mut i = 0;
-    let mut val = 0f64;
+    let mut val = 1f64;
     while i < numbers.len()
     {
         val *= numbers[i];
@@ -154,5 +154,30 @@ pub fn inverse_variance_weighting(numbers: &[f64], variance:&[f64]) -> f64
         i+=1;
     }
     coeff/inv_var
+}
+
+pub fn correlation(set_a: &[f64], set_b: &[f64]) -> f64 {
+    let n = set_a.len();
+
+    // lengths must match and must be non-zero
+    if n == 0 || set_b.len() != n {
+        return f64::NAN;
+    }
+    // means
+    let mean_a: f64 = crate::math::stats::mean(set_a);
+    let mean_b: f64 = crate::math::stats::mean(set_b);
+
+    // numerator and denominators
+    let mut numerator = 0.0;
+    let mut denom_a = 0.0;
+    let mut denom_b = 0.0;
+    for i in 0..n {
+        let da = set_a[i] - mean_a;
+        let db = set_b[i] - mean_b;
+        numerator += da * db;
+        denom_a += da * da;
+        denom_b += db * db;
+    }
+    numerator / (denom_a.sqrt() * denom_b.sqrt())
 }
 
