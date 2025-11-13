@@ -4,7 +4,7 @@
 <img width="1694" height="450" alt="SRW" src="https://github.com/user-attachments/assets/6c28c9e2-8ba1-48cd-aa31-9076c4c6c30d" />
 
 
-*Example Black-Scholes Surface Model*
+*Example Real-time Black-Scholes Surface Model*
 <img width="1904" height="947" alt="BS" src="https://github.com/user-attachments/assets/655ff580-bacb-48e5-930e-374902f56fbe" />
 
 ## What is this project?
