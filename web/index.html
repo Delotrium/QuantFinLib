@@ -1,0 +1,89 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>Black–Scholes Surfaces</title>
+    <script src="https://cdn.plot.ly/plotly-2.27.0.min.js"></script>
+    <style>
+      body {
+        margin: 0;
+        font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+        background: #0b0f1a;
+        color: #e5e7eb;
+        display: flex;
+        flex-direction: column;
+        height: 100vh;
+      }
+
+      .controls {
+        display: flex;
+        gap: 1.5rem;
+        padding: 0.75rem 1rem;
+        background: #111827;
+        border-bottom: 1px solid #1f2937;
+        align-items: center;
+        flex-wrap: wrap;
+      }
+
+      .control-group {
+        display: flex;
+        flex-direction: column;
+        font-size: 0.8rem;
+      }
+
+      .control-group label {
+        margin-bottom: 0.1rem;
+        color: #9ca3af;
+      }
+
+      .control-group input[type="range"] {
+        width: 180px;
+      }
+
+      .control-group input[type="number"] {
+        width: 80px;
+        background: #111827;
+        border: 1px solid #374151;
+        color: #e5e7eb;
+        border-radius: 4px;
+        padding: 0.1rem 0.3rem;
+      }
+
+      #plots {
+        flex: 1;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="controls">
+      <div class="control-group">
+        <label for="sRange">Stock Price S</label>
+        <input id="sRange" type="range" min="50" max="150" step="5" value="100" />
+        <input id="sValue" type="number" value="100" />
+      </div>
+
+      <div class="control-group">
+        <label for="kRange">Strike K</label>
+        <input id="kRange" type="range" min="50" max="150" step="5" value="100" />
+        <input id="kValue" type="number" value="100" />
+      </div>
+
+      <div class="control-group">
+        <label for="rRange">Rate r</label>
+        <input id="rRange" type="range" min="0" max="0.1" step="0.005" value="0.02" />
+        <input id="rValue" type="number" step="0.001" value="0.02" />
+      </div>
+
+      <div class="control-group">
+        <label for="qRange">Dividend q</label>
+        <input id="qRange" type="range" min="0" max="0.1" step="0.005" value="0.00" />
+        <input id="qValue" type="number" step="0.001" value="0.00" />
+      </div>
+    </div>
+
+    <div id="plots"></div>
+
+    <script src="chart.js"></script>
+  </body>
+</html>

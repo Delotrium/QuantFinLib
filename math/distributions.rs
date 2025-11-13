@@ -1,5 +1,5 @@
-// Modeling and calculations for mathematic distributions
 
+use rand::random;
 const PI : f64 = std::f64::consts::PI;
 
 pub fn poisson(lambda:f64, x :u64)->f64
@@ -65,4 +65,19 @@ pub fn erf(x: f64) -> f64 {
 
 pub fn norm_cdf(x: f64) -> f64 {
     0.5 * (1.0 + erf(x / std::f64::consts::SQRT_2))
+}
+
+pub fn normal_sample() -> f64 {
+    // Uniforms in (0,1]
+    let u1 = random::<f64>().max(1e-12);
+    let u2 = random::<f64>();
+
+    let r = (-2.0 * u1.ln()).sqrt();
+    let theta = 2.0 * PI * u2;
+
+    r * theta.cos()
+}
+
+pub fn normal_sample_mu_sigma(mean: f64, sd: f64) -> f64 {
+    mean + sd * normal_sample()
 }

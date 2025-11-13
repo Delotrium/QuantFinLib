@@ -2,7 +2,7 @@ use serde::{Deserialize, Serialize};
 use std::{error::Error, fs::File};
 use bincode::{deserialize_from, serialize_into};
 
-#[derive(Serialize, Deserialize, Debug)]
+#[derive(Serialize, Deserialize, Debug, Clone)]
 pub struct PricePoint 
 {
     pub timestamp: u64,
