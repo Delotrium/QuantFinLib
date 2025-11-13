@@ -1,7 +1,6 @@
 
 fn main()
 {
-  let current_value :f64= 540.82;
-  let past_value:f64 = 540.82 - 15.77;
-  println!("{}%", qfl::finance::ratios::portfolio_return_rate(current_value, past_value) * 600.0);
+  let values = vec![1.0, 2.0, 3.0, 4.0, 6.0];
+  println!("SD: {}, AM: {}, Sum: {}", qfl::math::stats::standard_deviation_sample(&values), qfl::math::stats::mean(&values), qfl::math::stats::sum(&values));
 }
