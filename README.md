@@ -12,13 +12,16 @@ This repository contains a native Rust library QFLib, with a GUI application, QF
 ## **QFLib** – A Library for Quantitative Finance Functions
 **QFLib** is a comprehensive library written in Rust designed to provide statistical and financial functions to support the analysis of financial markets. It includes implementations for various quantitative finance models, ranging from simple statistical functions to other analysis tools and functions.
 
+### **Current Development Map**
+Current working on developing the GUI and interaction base using Plotly to bridge between the Rust backend and GUI/Interface in JS/HTML/CSS.
+
 **Key Features:**
 
 Statistical Functions: Includes various statistical tools, which can be applied to both financial and non-financial programs
 
 Mathematical Functions: Provides various mathematical functions not included in the native Rust libraries, using optimised and efficient algorithms.
 
-Financial Models: *Will soon* Implement standard quantitative finance models, such as Black-Scholes, Monte Carlo simulations, and interest rate modelling.
+Financial Models: Implements standard quantitative finance models, such as Black-Scholes, Monte Carlo simulations, and interest rate modelling.
 
 Pricing Tools: Tools for the pricing of derivatives, bonds, options, and other financial instruments.
 
